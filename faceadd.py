@@ -8,8 +8,11 @@ def run_face_add():
     while True:
         ret, img = video_capture.read()
         live_img = copy.copy(img)
-        cv2.putText(live_img, "Smile and hit ENTER when ready!", (20, 40), font, 1.0, (255, 255, 255), 1)
-        cv2.imshow('Video', live_img)
+        cv2.putText(live_img, "Smile and hit ENTER when ready!", (20, 80), font, 2.0, (0, 0, 255), 2)
+        
+        cv2.namedWindow("Smile", cv2.WND_PROP_FULLSCREEN)
+        cv2.setWindowProperty("Smile", cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
+        cv2.imshow("Smile", live_img)
 
         key = cv2.waitKey(1)
         if key == 13:
